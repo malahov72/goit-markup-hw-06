@@ -239,7 +239,7 @@ img {
   transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
-  height: 581px;
+  min-height: 581px;
   background: var(--primery-white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -259,18 +259,27 @@ img {
   position: absolute;
   justify-content: center;
   align-items: center;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   padding: 0;
-  margin: 8px;
   border-radius: 50%;
-  color: #000000;
+  color: var(--titul-text-color);
   background: var(--primery-white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
 
+.modal-icon {
+  transition: fill var(--transition);
+}
+
+.modal-icon:hover,
+.modal-icon:focus {
+  fill: var(--accent-color);
+}
+
 .modal-title {
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
   text-align: center;
@@ -316,7 +325,7 @@ img {
   resize: none;
   outline: none;
   transition: border-color var(--transition);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .form-text::placeholder {
@@ -338,24 +347,26 @@ img {
   transition: fill var(--transition);
 }
 
+.form-text:hover,
+.form-input:hover,
 .form-text:focus,
 .form-input:focus {
   border-color: var(--accent-color);
 }
 
+.form-input:hover + .user-icon,
 .form-input:focus + .user-icon {
   fill: var(--accent-color);
 }
 
 .check-text {
   display: flex;
-  font-size: 14px;
-  line-height: 1.71;
   color: var(--primery-text-color);
   align-items: center;
+  justify-content: center;
 }
 
-.check-text span {
+.check-text .span-check {
   width: 16px;
   height: 15px;
   border: 2px solid var(--titul-text-color);
@@ -364,15 +375,22 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: border var(--transition);
 }
 
 .policy-icon {
   fill: transparent;
 }
 
-.policy-check:checked + .check-text span {
-  border: none;
+.policy-check:checked + .check-text .span-check {
+  border: 2px solid var(--accent-color);
   background-color: var(--accent-color);
+}
+
+.policy-check:focus + .check-text .span-check,
+.policy-check:hover + .check-text .span-check {
+  border: 2px solid var(--accent-color);
 }
 
 .policy-check:checked + .check-text .policy-icon {
@@ -382,6 +400,10 @@ img {
 .dogovor-link {
   color: var(--accent-color);
   margin-left: 5px;
+}
+
+.online-btn {
+  padding: 10px 55px;
 }
 
 .visually-hidden {
@@ -617,7 +639,11 @@ img {
   margin-bottom: 20px;
 }
 
-.footer-logo-address {
+.footer-cont-item:last-child {
+  margin-left: auto;
+}
+
+.footer-cont-item:not(:last-child) {
   margin-right: 70px;
 }
 
@@ -632,23 +658,20 @@ img {
 
 .subscribe {
   padding: 10px 28px;
-  display: inline-flex;
 }
 
 .telegram-icon {
   margin-left: 10px;
 }
 
-.form-email {
-  margin-right: 12px;
-  display: inline-flex;
+.footer-form {
+  display: flex;
+  align-items: center;
 }
 
 .label-email {
   font-size: 16px;
   line-height: 1.25;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.03em;
   padding: 14px 158px 14px 16px;
   color: rgba(255, 255, 255, 0.6);
@@ -656,7 +679,14 @@ img {
   box-sizing: border-box;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  background-color: var(--dark-background-color);
+  background-color: transparent;
+  margin-right: 12px;
+  transition: border var(--transition);
+}
+
+.label-email:focus,
+.label-email:hover {
+  border: 1px solid var(--primery-white-color);
 }
 
 /* -----Portfolio---------- */
